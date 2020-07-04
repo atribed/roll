@@ -1,17 +1,18 @@
 const path = require('path');
 
 const includeJSPaths = [
-  path.resolve(__dirname),
+  path.resolve(__dirname, 'js'),
 ];
 
 module.exports = {
-  entry: path.resolve(__dirname, 'index.js'),
+  entry: path.resolve(__dirname, 'js/index.js'),
   devServer: {
     port: 3000,
     host: '0.0.0.0',
+    contentBase: './dist',
   },
   output: {
-    publicPath: '/static/',
+    publicPath: '/dist/',
   },
   module: {
     rules: [
@@ -28,5 +29,5 @@ module.exports = {
         loader: 'url-loader',
       }
     ]
-  }
+  },
 };
