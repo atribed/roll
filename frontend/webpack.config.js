@@ -12,7 +12,7 @@ module.exports = {
     contentBase: './dist',
   },
   output: {
-    publicPath: '/dist/',
+    publicPath: '/dist/js',
   },
   module: {
     rules: [
