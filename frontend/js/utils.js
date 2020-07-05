@@ -37,7 +37,7 @@ export const enableShake = (onSuccess) => {
           _onShakeEnabled();
         }
       })
-      .catch(console.error);
+      .catch(window.alert(error));
   } else {
     _onShakeEnabled();
   }
