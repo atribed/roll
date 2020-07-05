@@ -6,7 +6,7 @@ const Staging = ({ dice, removeDie }) => (
     Dice to be Rolled {dice.length > 0 ? " (click die to remove)" : ""}
     {!dice.length && (
       <Box fontSize="12px" style={{ color: "#404040" }} px={2} pt={1}>
-        Select dice below to add them to group to be rolled.
+        Select dice below to add them to the group to be rolled.
       </Box>
     )}
     {dice.length > 0 && (

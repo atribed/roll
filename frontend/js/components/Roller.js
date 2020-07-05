@@ -52,7 +52,7 @@ const Roller = () => {
           disabled={selectedDice.length === 0}
           fullWidth
         >
-          Roll the staged {selectedDice.length > 1 ? "dice" : "die"}
+          Roll selected {selectedDice.length > 1 ? "dice" : "die"}
         </Button>
       </Box>
       <Box mt={2}>
