@@ -18,9 +18,9 @@ const Results = ({ dice }) => {
             {dice.map(
               (d) =>
                 d.result && (
-                  <Box 
-                    display="flex" 
-                    alignItems="center" 
+                  <Box
+                    display="flex"
+                    alignItems="center"
                     key={d.sides}
                     minWidth="50px"
                   >

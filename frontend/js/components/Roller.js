@@ -8,6 +8,7 @@ import { enableShake, roll } from "../utils";
 import DiceSelect from "./DiceSelect";
 import Results from "./Results";
 import Staging from "./Staging";
+import Footer from "./Footer";
 
 const Roller = () => {
   const [selectedDice, setSelectedDice] = useState([]);
@@ -63,6 +64,7 @@ const Roller = () => {
           Enable Shake to Roll
         </Button>
       </Box>
+      <Footer />
     </Container>
   );
 };
