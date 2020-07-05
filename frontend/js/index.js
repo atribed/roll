@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 
-import Roller from "./components/Roller";
+import App from "./components/App";
 
-render(<Roller />, document.getElementById("roll"));
+render(<App />, document.getElementById("roll"));
