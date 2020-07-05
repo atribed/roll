@@ -11,16 +11,16 @@ const DiceSelect = ({ onDieClick }) => (
     flex="1 1 0px"
   >
     {DICE_CONFIGS.map((d) => (
-      <Box key={d.sides} mb={"10px"} width="95px">
+      <Box key={d.sides} mb={2} width="95px">
         <Button
           onClick={() => onDieClick(d)}
           variant="outlined"
-          m={"24px"}
+          m={3}
           fullWidth
         >
           <Box display="flex" alignItems="center">
-            <Box mr={"10px"}>
-              <img src={d.icon} height={"36px"} />
+            <Box mr={2}>
+              <img src={d.icon} height="36px" />
             </Box>
             {d.label}
           </Box>

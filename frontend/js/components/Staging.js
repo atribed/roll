@@ -6,7 +6,7 @@ const Staging = ({ dice, removeDie }) => (
     Dice to be Rolled {dice.length > 0 ? " (click die to remove)" : ""}
     {!dice.length && (
       <Box fontSize="12px" style={{ color: "#404040" }} px={2} pt={1}>
-        Select dice below to add them to the staging area.
+        Select dice below to add them to group to be rolled.
       </Box>
     )}
     {dice.length > 0 && (
@@ -20,7 +20,8 @@ const Staging = ({ dice, removeDie }) => (
           <Box
             onClick={() => removeDie(i)}
             style={{ cursor: "pointer" }}
-            ml={dice.length === 2 && i === 1 ? "50px" : ""}
+            ml={dice.length === 2 && i === 1 ? 4 : 0}
+            minWidth="50px"
           >
             <Box textAlign="center">
               <img src={d.icon} height="24px" />

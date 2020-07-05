@@ -11,16 +11,21 @@ const Results = ({ dice }) => {
     <Box>
       {totalRoll ? (
         <Box>
-          <Box textAlign="center" fontSize={"70px"}>
+          <Box textAlign="center" fontSize="70px">
             {totalRoll}
           </Box>
-          <Box display="flex" justifyContent="space-around">
+          <Box display="flex" flexWrap="wrap" justifyContent="space-around">
             {dice.map(
               (d) =>
                 d.result && (
-                  <Box display="flex" alignItems="center" key={d.sides}>
+                  <Box 
+                    display="flex" 
+                    alignItems="center" 
+                    key={d.sides}
+                    minWidth="50px"
+                  >
                     <img src={d.icon} height="24px" />
-                    <Box fontSize={"12px"} ml={"5px"} color="green">
+                    <Box fontSize="12px" ml={1} color="green">
                       {d.result}
                     </Box>
                   </Box>

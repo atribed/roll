@@ -15,8 +15,8 @@ const Roller = () => {
   const [shakeEnabled, setShakeEnabled] = useState(false);
 
   return (
-    <Container maxWidth={"sm"}>
-      <img src={Logo} width={"100%"} />
+    <Container maxWidth="sm">
+      <img src={Logo} width="100%" />
       <Box mt={3} borderBottom="3px" borderColor="primary">
         <Staging
           dice={selectedDice}
