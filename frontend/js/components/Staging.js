@@ -22,6 +22,7 @@ const Staging = ({ dice, removeDie }) => (
             style={{ cursor: "pointer" }}
             ml={dice.length === 2 && i === 1 ? 4 : 0}
             minWidth="50px"
+            key={`${d.sides}${i}`}
           >
             <Box textAlign="center">
               <img src={d.icon} height="24px" />

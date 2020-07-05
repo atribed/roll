@@ -15,6 +15,17 @@ const Roller = () => {
   const [results, setResults] = useState([]);
   const [shakeEnabled, setShakeEnabled] = useState(false);
 
+  // TODO: Implement a better to handle the memory leak
+  if (shakeEnabled) {
+    if (window.lastCalled) {
+      window.removeEventListener("shake", window.lastCalled);
+    }
+
+    window.lastCalled = () => setResults(roll(selectedDice));
+
+    window.addEventListener("shake", window.lastCalled, false);
+  }
+
   return (
     <Container maxWidth="sm">
       <img src={Logo} width="100%" />
@@ -59,9 +70,13 @@ const Roller = () => {
           disabled={shakeEnabled}
           fullWidth
           variant="outlined"
-          onClick={() => enableShake(() => setShakeEnabled(true))}
+          onClick={() =>
+            enableShake(() => {
+              setShakeEnabled(true);
+            })
+          }
         >
-          Enable Shake to Roll
+          {shakeEnabled ? "Shake Enabled" : "Enable Shake to Roll"}
         </Button>
       </Box>
       <Footer />

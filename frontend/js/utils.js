@@ -14,9 +14,18 @@ export const roll = (dice) => {
 /**
  * Enables shake and fires an onSuccess callback.
  *
+ * TODO: Fix potential memory leaks for roll.
+ *
  * @param {Function} onSuccess
  */
-export const enableShake = (onSuccess) => {
+export const enableShake = (onSuccess, onFailure) => {
+  if (!window.DeviceMotionEvent) {
+    window.alert("Your device does not allow device motion.");
+    onFailure();
+
+    return;
+  }
+
   const _onShakeEnabled = () => {
     const shakeEvent = new Shake({
       threshold: 15, // optional shake strength threshold
@@ -25,19 +34,20 @@ export const enableShake = (onSuccess) => {
 
     shakeEvent.start();
 
-    window.addEventListener("shake", roll, false);
-
     onSuccess();
   };
 
-  if (typeof DeviceMotionEvent.requestPermission === "function") {
-    DeviceMotionEvent.requestPermission()
+  if (typeof window.DeviceMotionEvent.requestPermission === "function") {
+    window.DeviceMotionEvent.requestPermission()
       .then((permissionState) => {
         if (permissionState === "granted") {
           _onShakeEnabled();
         }
       })
-      .catch(window.alert(error));
+      .catch(() => {
+        window.alert("There was an error enabling device motion.");
+        onFailure();
+      });
   } else {
     _onShakeEnabled();
   }
