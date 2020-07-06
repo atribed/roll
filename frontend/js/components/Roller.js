@@ -62,7 +62,7 @@ const Roller = () => {
           onClick={() => setSelectedDice([])}
           disabled={selectedDice.length === 0}
         >
-          Reset Staging
+          Reset selected {selectedDice.length > 1 ? "dice" : "die"}
         </Button>
       </Box>
       <Box mt={2}>
