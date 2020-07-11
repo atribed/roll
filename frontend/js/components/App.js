@@ -1,4 +1,5 @@
 import React from "react";
+import ReactGA from 'react-ga';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import Roller from "./Roller";
@@ -13,6 +14,9 @@ const theme = createMuiTheme({
     },
   },
 });
+
+ReactGA.initialize(process.env.GA_CODE);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => (
   <ThemeProvider theme={theme}>
