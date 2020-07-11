@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const includeJSPaths = [
   path.resolve(__dirname, 'js'),
@@ -31,4 +32,7 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.EnvironmentPlugin(['GA_CODE',]),
+  ]
 };

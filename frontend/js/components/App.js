@@ -15,7 +15,6 @@ const theme = createMuiTheme({
   },
 });
 
-console.log(process.env, 'process.env');
 ReactGA.initialize(process.env.GA_CODE);
 ReactGA.pageview(window.location.pathname + window.location.search);
 
